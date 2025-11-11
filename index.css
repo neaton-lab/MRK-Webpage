@@ -1,5 +1,35 @@
 body {
     margin: 0;
+    background-color: darkred;
+    color: white;
+    .menu-catagory {
+        background-color: white;
+        color: darkred;
+        width: 20rem;
+        margin-left: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.25rem;
+    }
+
+    .menu-item {
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin: 0.25rem;
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0.5rem;
+        li {
+            padding-left: 0.5rem;
+        }
+    }
 }
 
 footer {
