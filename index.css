@@ -5,8 +5,23 @@ body {
 footer {
     bottom: 0;
     width: 100%;
+    background-color: darkred;
+    color: white;
     .footer-main {
-        padding: 0 20px 0 20px;
+        padding: 20px;
         text-align: center;
+        font-size: larger;
+    }
+    .contact-flex {
+        display: flex;
+        justify-content: space-evenly;
+        div {
+            flex-wrap: wrap;
+            width: 20%;
+            background-color: rgba(255, 161, 53, 0.541);
+            padding: 20px 10px 0 10px;
+            margin-bottom: 20px;
+            border-radius: 20%;
+        }
     }
 }
