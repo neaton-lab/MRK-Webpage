@@ -26,7 +26,7 @@ body {
     cursor: pointer;
   }
 
-  #menu-kebab, #menu-lahmachun {
+  #menu-kebab, #menu-lahmachun, #menu-ensaladas, #menu-durum {
     overflow-y: auto;
     max-height: 0px;
     opacity: 0;
@@ -41,6 +41,18 @@ body {
   }
 
   #lahmachun-dropdown:checked ~ #menu-lahmachun {
+    overflow-y: scroll;
+    max-height: 2000px;
+    opacity: 1;
+  }
+  
+  #ensaladas-dropdown:checked ~ #menu-ensaladas {
+    overflow-y: scroll;
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  #durum-dropdown:checked ~ #menu-durum {
     overflow-y: scroll;
     max-height: 2000px;
     opacity: 1;
