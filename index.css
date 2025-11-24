@@ -10,6 +10,44 @@ body {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     padding: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn-dropdown {
+    display: none;
+  }
+  
+  .dropdown {
+    -webkit-text-stroke: 2px;
+  }
+  
+  .dropdown:hover {
+    cursor: pointer;
+  }
+
+  #menu-kebab, #menu-lahmachun {
+    overflow-y: auto;
+    max-height: 0px;
+    opacity: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #kebab-dropdown:checked ~ #menu-kebab {
+    overflow-y: scroll;
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  #lahmachun-dropdown:checked ~ #menu-lahmachun {
+    overflow-y: scroll;
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  .menu-display {
+    transition: opacity 0.5s, max-height 0.5s linear;
   }
 
   .menu-item {
