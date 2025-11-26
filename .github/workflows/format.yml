@@ -1,0 +1,17 @@
+name: Formatter
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          node-version: 20
+      - run: npm run prettier
