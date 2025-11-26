@@ -60,7 +60,8 @@ body {
     #menu-lahmachun,
     #menu-ensaladas,
     #menu-durum,
-    #menu-platos {
+    #menu-platos,
+    #menu-menus {
         overflow-y: auto;
         max-height: 0px;
         opacity: 0;
@@ -93,6 +94,12 @@ body {
     }
 
     #platos-dropdown:checked ~ #menu-platos {
+        overflow-y: scroll;
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    #menus-dropdown:checked ~ #menu-menus {
         overflow-y: scroll;
         max-height: 2000px;
         opacity: 1;
