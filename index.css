@@ -1,163 +1,175 @@
 #header {
-  position: fixed;
-  background-color: rgb(107, 0, 0);
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  #img-logo-header {
-    height: 60px;
-    padding: 10px;
-  }
-  #links-header > p {
-    display: inline-block;
-    padding: 10px;
-    font-size: larger;
-  }
+    position: fixed;
+    background-color: rgb(107, 0, 0);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    #img-logo-header {
+        height: 60px;
+        padding: 10px;
+    }
+    #links-header > p {
+        display: inline-block;
+        padding: 10px;
+        font-size: larger;
+    }
 }
 
 body {
-  margin: 0;
-  background-color: darkred;
-  color: white;
-  .menu-catagory {
-    background-color: white;
-    color: darkred;
-    width: 20rem;
-    margin-left: 0.5rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    padding: 0.25rem;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .main-menu-display {
-    padding-top: 80px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .main-menu-display > div {
-    flex: 1;
-    flex-basis: 40%;
-  }
-
-  .btn-dropdown {
-    display: none;
-  }
-  
-  .dropdown {
-    -webkit-text-stroke: 2px;
-  }
-  
-  .dropdown:hover {
-    cursor: pointer;
-  }
-
-  #menu-kebab, #menu-lahmachun, #menu-ensaladas, #menu-durum {
-    overflow-y: auto;
-    max-height: 0px;
-    opacity: 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  #kebab-dropdown:checked ~ #menu-kebab {
-    overflow-y: scroll;
-    max-height: 2000px;
-    opacity: 1;
-  }
-
-  #lahmachun-dropdown:checked ~ #menu-lahmachun {
-    overflow-y: scroll;
-    max-height: 2000px;
-    opacity: 1;
-  }
-  
-  #ensaladas-dropdown:checked ~ #menu-ensaladas {
-    overflow-y: scroll;
-    max-height: 2000px;
-    opacity: 1;
-  }
-
-  #durum-dropdown:checked ~ #menu-durum {
-    overflow-y: scroll;
-    max-height: 2000px;
-    opacity: 1;
-  }
-
-  .menu-display {
-    transition: opacity 0.5s, max-height 0.5s linear;
-  }
-
-  .menu-item {
-    h2 {
-      margin-bottom: 0.5rem;
+    margin: 0;
+    background-color: darkred;
+    color: white;
+    .menu-catagory {
+        background-color: white;
+        color: darkred;
+        width: 20rem;
+        margin-left: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.25rem;
+        display: flex;
+        justify-content: space-between;
     }
-    p {
-      margin: 0.25rem;
-      margin-left: 0px;
-      padding-left: 0px;
-    }
-  }
 
-  ul {
-    list-style-type: none;
-    padding-left: 0.5rem;
-    li {
-      padding-left: 0.5rem;
+    .main-menu-display {
+        padding-top: 80px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
-  }
+
+    .main-menu-display > div {
+        flex: 1;
+        flex-basis: 40%;
+    }
+
+    .btn-dropdown {
+        display: none;
+    }
+
+    .dropdown {
+        -webkit-text-stroke: 2px;
+    }
+
+    .dropdown:hover {
+        cursor: pointer;
+    }
+
+    #menu-kebab,
+    #menu-lahmachun,
+    #menu-ensaladas,
+    #menu-durum,
+    #menu-platos {
+        overflow-y: auto;
+        max-height: 0px;
+        opacity: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    #kebab-dropdown:checked ~ #menu-kebab {
+        overflow-y: scroll;
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    #lahmachun-dropdown:checked ~ #menu-lahmachun {
+        overflow-y: scroll;
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    #ensaladas-dropdown:checked ~ #menu-ensaladas {
+        overflow-y: scroll;
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    #durum-dropdown:checked ~ #menu-durum {
+        overflow-y: scroll;
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    #platos-dropdown:checked ~ #menu-platos {
+        overflow-y: scroll;
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    .menu-display {
+        transition:
+            opacity 0.5s,
+            max-height 0.5s linear;
+    }
+
+    .menu-item {
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin: 0.25rem;
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0.5rem;
+        li {
+            padding-left: 0.5rem;
+        }
+    }
 }
 
 footer {
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(107, 0, 0);
-  color: white;
-  .footer-main {
-    padding: 20px 40px;
-    text-align: center;
-    font-size: larger;
-    .map > iframe {
-      border-radius: 15px;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(107, 0, 0);
+    color: white;
+    .footer-main {
+        padding: 20px 40px;
+        text-align: center;
+        font-size: larger;
+        .map > iframe {
+            border-radius: 15px;
+        }
     }
-  }
-  .footer-socials {
-    margin-top: 30px;
-    padding: 20px;
-    text-align: center;
-    background-color: rgb(56, 0, 0);
-    font-size: 15px;
-    color: rgb(209, 209, 209);
-    .socials {
-      i {
-        padding: 0 10px;
-      }
+    .footer-socials {
+        margin-top: 30px;
+        padding: 20px;
+        text-align: center;
+        background-color: rgb(56, 0, 0);
+        font-size: 15px;
+        color: rgb(209, 209, 209);
+        .socials {
+            i {
+                padding: 0 10px;
+            }
+        }
+        .copyright {
+            margin-top: 10px;
+        }
     }
-    .copyright {
-      margin-top: 10px;
+    .contact-flex {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        div {
+            flex-grow: 1;
+            flex-wrap: wrap;
+            width: 20%;
+            min-width: 320px;
+            background-color: rgb(157, 37, 18);
+            padding: 15px 10px 0 10px;
+            border-radius: 5%;
+        }
+        i {
+            font-size: 30px;
+        }
     }
-  }
-  .contact-flex {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    div {
-      flex-grow: 1;
-      flex-wrap: wrap;
-      width: 20%;
-      min-width: 320px;
-      background-color: rgb(157, 37, 18);
-      padding: 15px 10px 0 10px;
-      border-radius: 5%;
-    }
-    i {
-      font-size: 30px;
-    }
-  }
 }
