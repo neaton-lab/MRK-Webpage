@@ -63,7 +63,8 @@ body {
   #menu-platos,
   #menu-menus,
   #menu-raciones,
-  #menu-extras {
+  #menu-extras,
+  #menu-bebidas {
     overflow-y: auto;
     max-height: 0px;
     opacity: 0;
@@ -114,6 +115,12 @@ body {
   }
 
   #extras-dropdown:checked ~ #menu-extras {
+    overflow-y: scroll;
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  #bebidas-dropdown:checked ~ #menu-bebidas {
     overflow-y: scroll;
     max-height: 2000px;
     opacity: 1;
