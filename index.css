@@ -61,7 +61,8 @@ body {
     #menu-ensaladas,
     #menu-durum,
     #menu-platos,
-    #menu-menus {
+    #menu-menus,
+    #menu-raciones {
         overflow-y: auto;
         max-height: 0px;
         opacity: 0;
@@ -100,6 +101,12 @@ body {
     }
 
     #menus-dropdown:checked ~ #menu-menus {
+        overflow-y: scroll;
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    #raciones-dropdown:checked ~ #menu-raciones {
         overflow-y: scroll;
         max-height: 2000px;
         opacity: 1;
