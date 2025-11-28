@@ -6,11 +6,20 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
         $("#footer").load("footer.html");
+      });
+      $(document).ready(function () {
+        $("#ofertas").load("offers.html");
       });
       $(document).ready(function () {
         $("#menu").load("menu/menu.html");
@@ -22,6 +31,8 @@
   </head>
   <body>
     <div id="header"></div>
+    <div id="ofertas"></div>
+    <hr />
     <div id="menu"></div>
     <footer id="footer"></footer>
   </body>

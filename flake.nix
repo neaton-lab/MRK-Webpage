@@ -30,6 +30,7 @@
                   packages = with pkgs; [
                     http-server
                     prettier
+                    vscode-langservers-extracted
                   ];
 
                   enterShell = ''
