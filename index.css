@@ -27,7 +27,6 @@ body {
 
   #ofertas {
     display: flex;
-    padding-top: 80px;
     font-weight: 800;
     align-content: center;
     align-items: center;
