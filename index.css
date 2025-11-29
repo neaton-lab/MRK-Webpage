@@ -113,12 +113,25 @@ body {
     background-color: white;
     color: darkred;
     width: 20rem;
+
     margin-left: 0.5rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     padding: 0.25rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+    border: solid orangered;
+    border-width: 3px;
+    border-radius: 1.5rem;
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    i {
+      display: flex;
+    }
   }
 
   .main-menu-display {
