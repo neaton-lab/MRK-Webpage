@@ -307,5 +307,9 @@ footer {
     i {
       font-size: 30px;
     }
+
+    a {
+      color: white;
+    }
   }
 }
