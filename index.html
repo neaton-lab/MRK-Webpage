@@ -27,13 +27,19 @@
       $(document).ready(function () {
         $("#header").load("header.html");
       });
+      $(document).ready(function () {
+        $("#carousel").load("carousel.html");
+      });
     </script>
   </head>
   <body>
     <div id="header"></div>
-    <div id="ofertas" style="padding-top: 80px"></div>
-    <hr />
-    <div id="menu"></div>
+    <article style="padding-top: 80px">
+      <div id="carousel"></div>
+      <div id="ofertas"></div>
+      <hr />
+      <div id="menu"></div>
+    </article>
     <footer id="footer"></footer>
   </body>
 </html>
