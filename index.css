@@ -317,6 +317,7 @@ footer {
 }
 
 #listaCarousel {
+  scroll-behavior: smooth;
   width: 100%;
   height: 600px;
   overflow-y: hidden;
