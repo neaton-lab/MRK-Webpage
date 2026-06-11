@@ -19,17 +19,28 @@
 <script>
   (function () {
     var list = document.getElementById("listaCarousel");
+    var total = list.children.length;
+    var THRESHOLD = 60;
+
+    function goTo(index, behavior) {
+      var target = ((index % total) + total) % total;
+      list.scrollTo({ left: target * list.offsetWidth, behavior: behavior || "smooth" });
+    }
+
+    function currentIndex() {
+      return Math.round(list.scrollLeft / list.offsetWidth);
+    }
 
     document.getElementById("carousel-prev").addEventListener("click", function () {
-      list.scrollBy({ left: -list.offsetWidth, behavior: "smooth" });
+      goTo(currentIndex() - 1);
     });
     document.getElementById("carousel-next").addEventListener("click", function () {
-      list.scrollBy({ left: list.offsetWidth, behavior: "smooth" });
+      goTo(currentIndex() + 1);
     });
 
+    // Mouse drag
     var isDown = false;
     var startX, startScrollLeft;
-    var THRESHOLD = 60;
 
     list.style.cursor = "grab";
 
@@ -48,8 +59,7 @@
     list.addEventListener("mousemove", function (e) {
       if (!isDown) return;
       e.preventDefault();
-      var x = e.pageX - list.offsetLeft;
-      list.scrollLeft = startScrollLeft - (x - startX);
+      list.scrollLeft = startScrollLeft - (e.pageX - list.offsetLeft - startX);
     });
 
     list.addEventListener("mouseup", function (e) {
@@ -58,13 +68,10 @@
       list.style.cursor = "grab";
       list.style.userSelect = "";
       var delta = e.pageX - list.offsetLeft - startX;
-      if (delta < -THRESHOLD) {
-        list.scrollTo({ left: startScrollLeft + list.offsetWidth, behavior: "smooth" });
-      } else if (delta > THRESHOLD) {
-        list.scrollTo({ left: startScrollLeft - list.offsetWidth, behavior: "smooth" });
-      } else {
-        list.scrollTo({ left: startScrollLeft, behavior: "smooth" });
-      }
+      var idx = Math.round(startScrollLeft / list.offsetWidth);
+      if (delta < -THRESHOLD) goTo(idx + 1);
+      else if (delta > THRESHOLD) goTo(idx - 1);
+      else list.scrollTo({ left: startScrollLeft, behavior: "smooth" });
     });
 
     list.addEventListener("mouseleave", function () {
@@ -73,6 +80,26 @@
       list.style.cursor = "grab";
       list.style.userSelect = "";
       list.scrollTo({ left: startScrollLeft, behavior: "smooth" });
+    });
+
+    // Touch
+    var touchStartX, touchStartScroll;
+
+    list.addEventListener("touchstart", function (e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartScroll = list.scrollLeft;
+    }, { passive: true });
+
+    list.addEventListener("touchmove", function (e) {
+      list.scrollLeft = touchStartScroll - (e.touches[0].clientX - touchStartX);
+    }, { passive: true });
+
+    list.addEventListener("touchend", function (e) {
+      var delta = e.changedTouches[0].clientX - touchStartX;
+      var idx = Math.round(touchStartScroll / list.offsetWidth);
+      if (delta < -THRESHOLD) goTo(idx + 1);
+      else if (delta > THRESHOLD) goTo(idx - 1);
+      else list.scrollTo({ left: touchStartScroll, behavior: "smooth" });
     });
   })();
 </script>
