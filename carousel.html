@@ -1,14 +1,78 @@
-<ul id="listaCarousel">
-  <li data-accName="Item 1">
-    <img src="img/header.jpg" alt="Header"/>
-  </li>
-  <li data-accName="Item 2">
-    <img src="img/lahmacun.png" alt="Lahmacun"/>
-  </li>
-  <li data-accName="Item 3">
-    <img src="img/fries.png" alt="Fries"/>
-  </li>
-  <li data-accName="Item 4">
-    <img src="img/plate_1.png" alt="Plate"/>
-  </li>
-</ul>
+<div id="carouselWrapper">
+  <ul id="listaCarousel">
+    <li data-accName="Item 1">
+      <img src="img/header.jpg" alt="Header" draggable="false" />
+    </li>
+    <li data-accName="Item 2">
+      <img src="img/lahmacun.png" alt="Lahmacun" draggable="false" />
+    </li>
+    <li data-accName="Item 3">
+      <img src="img/fries.png" alt="Fries" draggable="false" />
+    </li>
+    <li data-accName="Item 4">
+      <img src="img/plate_1.png" alt="Plate" draggable="false" />
+    </li>
+  </ul>
+  <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">◄</button>
+  <button class="carousel-btn" id="carousel-next" aria-label="Siguiente">►</button>
+</div>
+<script>
+  (function () {
+    var list = document.getElementById("listaCarousel");
+
+    document.getElementById("carousel-prev").addEventListener("click", function () {
+      list.scrollBy({ left: -list.offsetWidth, behavior: "smooth" });
+    });
+    document.getElementById("carousel-next").addEventListener("click", function () {
+      list.scrollBy({ left: list.offsetWidth, behavior: "smooth" });
+    });
+
+    var isDown = false;
+    var startX, startScrollLeft;
+    var THRESHOLD = 60;
+
+    list.style.cursor = "grab";
+
+    list.addEventListener("dragstart", function (e) {
+      e.preventDefault();
+    });
+
+    list.addEventListener("mousedown", function (e) {
+      isDown = true;
+      list.style.cursor = "grabbing";
+      list.style.userSelect = "none";
+      startX = e.pageX - list.offsetLeft;
+      startScrollLeft = list.scrollLeft;
+    });
+
+    list.addEventListener("mousemove", function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - list.offsetLeft;
+      list.scrollLeft = startScrollLeft - (x - startX);
+    });
+
+    list.addEventListener("mouseup", function (e) {
+      if (!isDown) return;
+      isDown = false;
+      list.style.cursor = "grab";
+      list.style.userSelect = "";
+      var delta = e.pageX - list.offsetLeft - startX;
+      if (delta < -THRESHOLD) {
+        list.scrollTo({ left: startScrollLeft + list.offsetWidth, behavior: "smooth" });
+      } else if (delta > THRESHOLD) {
+        list.scrollTo({ left: startScrollLeft - list.offsetWidth, behavior: "smooth" });
+      } else {
+        list.scrollTo({ left: startScrollLeft, behavior: "smooth" });
+      }
+    });
+
+    list.addEventListener("mouseleave", function () {
+      if (!isDown) return;
+      isDown = false;
+      list.style.cursor = "grab";
+      list.style.userSelect = "";
+      list.scrollTo({ left: startScrollLeft, behavior: "smooth" });
+    });
+  })();
+</script>

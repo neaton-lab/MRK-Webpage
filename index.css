@@ -325,7 +325,9 @@ footer {
   padding: 0;
   margin: 0;
   margin-top: 2rem;
-  overflow-x: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   scroll-snap-type: x mandatory;
   li {
     scroll-snap-align: center;
@@ -342,52 +344,40 @@ footer {
   }
 }
 
-#listaCarousel::scroll-button(*) {
+#carouselWrapper {
+  position: relative;
+}
+
+#listaCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   border: 0;
   font-size: 2rem;
   background: none;
   color: black;
   opacity: 0.7;
   cursor: pointer;
+  z-index: 1;
 }
 
-#listaCarousel::scroll-button(*):hover,
-#listaCarousel::scroll-button(*):focus {
+.carousel-btn:hover,
+.carousel-btn:focus {
   opacity: 1;
 }
 
-#listaCarousel::scroll-button(*):active {
+.carousel-btn:active {
   translate: 1px 1px;
 }
 
-#listaCarousel::scroll-button(*):disabled {
-  opacity: 0.2;
-  cursor: unset;
+#carousel-prev {
+  left: 10px;
 }
 
-#listaCarousel::scroll-button(left) {
-  content: "◄" / "Previous";
-}
-
-#listaCarousel::scroll-button(right) {
-  content: "►" / "Next";
-}
-
-#listaCarousel {
-  anchor-name: --my-carousel;
-}
-
-#listaCarousel::scroll-button(*) {
-  position: absolute;
-  position-anchor: --my-carousel;
-}
-
-#listaCarousel::scroll-button(left) {
-  right: calc(anchor(left) - 70px);
-  bottom: calc(anchor(top) - 300px);
-}
-
-#listaCarousel::scroll-button(right) {
-  left: calc(anchor(right) - 70px);
-  bottom: calc(anchor(top) - 300px);
+#carousel-next {
+  right: 10px;
 }
