@@ -266,6 +266,55 @@ body {
   }
 }
 
+#btn-llamar-flotante {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: rgb(107, 0, 0);
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: 2px solid orangered;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  transition: background-color 0.2s;
+}
+
+#btn-llamar-flotante:hover {
+  background-color: rgb(157, 37, 18);
+  color: white;
+  text-decoration: none;
+}
+
+#menu-llamar-cta {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+}
+
+#btn-llamar-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  color: darkred;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: 3px solid orangered;
+  font-size: 20px;
+  transition: background-color 0.2s;
+}
+
+#btn-llamar-menu:hover {
+  background-color: orangered;
+  color: white;
+}
+
 footer {
   bottom: 0;
   width: 100%;
