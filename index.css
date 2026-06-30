@@ -337,7 +337,7 @@ footer {
     font-size: 15px;
     color: rgb(209, 209, 209);
     .socials {
-      svg {
+      i {
         padding: 0 10px;
       }
     }
@@ -360,7 +360,7 @@ footer {
       padding: 15px 10px 0 10px;
       border-radius: 5%;
     }
-    svg {
+    i {
       font-size: 30px;
     }
   }
