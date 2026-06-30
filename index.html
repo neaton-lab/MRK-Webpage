@@ -14,22 +14,52 @@
     />
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
-    <script src="/jquery.min.js"></script>
     <script>
-      $(document).ready(function () {
-        $("#footer").load("footer.html");
-      });
-      $(document).ready(function () {
-        $("#ofertas").load("offers.html");
-      });
-      $(document).ready(function () {
-        $("#menu").load("menu/menu.html");
-      });
-      $(document).ready(function () {
-        $("#header").load("header.html");
-      });
-      $(document).ready(function () {
-        $("#carousel").load("carousel.html");
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.style.visibility = "hidden";
+
+        function setHTML(el, html) {
+          el.innerHTML = html;
+          el.querySelectorAll("script").forEach(function (old) {
+            var s = document.createElement("script");
+            Array.prototype.slice.call(old.attributes).forEach(function (a) {
+              s.setAttribute(a.name, a.value);
+            });
+            s.textContent = old.textContent;
+            old.parentNode.replaceChild(s, old);
+          });
+        }
+
+        var menuSections = [
+          "kebabs", "lahmachun", "durums", "ensaladas",
+          "platos", "menus", "raciones", "extras", "bebidas", "postres",
+        ];
+
+        Promise.all(
+          [
+            fetch("header.html").then(function (r) { return r.text(); }),
+            fetch("carousel.html").then(function (r) { return r.text(); }),
+            fetch("offers.html").then(function (r) { return r.text(); }),
+            fetch("menu/menu.html").then(function (r) { return r.text(); }),
+            fetch("footer.html").then(function (r) { return r.text(); }),
+          ].concat(
+            menuSections.map(function (s) {
+              return fetch("menu/sections/" + s + ".html").then(function (r) { return r.text(); });
+            })
+          )
+        ).then(function (results) {
+          document.getElementById("header").innerHTML = results[0];
+          setHTML(document.getElementById("carousel"), results[1]);
+          document.getElementById("ofertas").innerHTML = results[2];
+          document.getElementById("menu").innerHTML = results[3];
+          menuSections.forEach(function (id, i) {
+            var el = document.getElementById(id);
+            if (el) el.innerHTML = results[5 + i];
+          });
+          document.getElementById("footer").innerHTML = results[4];
+
+          document.body.style.visibility = "visible";
+        });
       });
     </script>
   </head>
