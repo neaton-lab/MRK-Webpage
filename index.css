@@ -351,8 +351,13 @@ footer {
     padding: 20px 40px;
     text-align: center;
     font-size: larger;
-    .map > iframe {
-      border-radius: 15px;
+    .map {
+      .map-facade > img {
+        border-radius: 15px;
+      }
+      .map-facade > iframe {
+        border-radius: 15px;
+      }
     }
   }
   .footer-socials {

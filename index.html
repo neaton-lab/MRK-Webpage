@@ -105,7 +105,7 @@
             var el = document.getElementById(id);
             if (el) el.innerHTML = results[5 + i];
           });
-          document.getElementById("footer").innerHTML = results[4];
+          setHTML(document.getElementById("footer"), results[4]);
 
           document.body.style.visibility = "visible";
         });

@@ -22,18 +22,28 @@
       </div>
     </div>
     <div class="map" id="ubicacionMapa">
-      <iframe
-        width="100%"
-        height="400"
-        frameborder="0"
-        scrolling="no"
-        marginheight="0"
-        marginwidth="0"
-        src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=es&amp;q=avenida%20de%20la%20coru%C3%B1a%20154,%20lugo+(MRK%20Istambul%20Lugo)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-        title="Google Maps View"
-        ><a href="https://www.gps.ie/car-satnav-gps/">Car GPS</a></iframe
-      >
+      <div id="map-facade" class="map-facade" onclick="loadMap()" style="cursor:pointer;position:relative;width:100%;height:400px;overflow:hidden;border-radius:15px;">
+        <img
+          src="/img/facade.webp"
+          alt="Mapa de ubicación MRK Istambul"
+          style="width:100%;height:100%;object-fit:cover;filter:blur(3px);transform:scale(1.05);"
+        />
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;">
+          <span style="background:#fff;color:#222;padding:10px 20px;border-radius:24px;font-size:1rem;font-weight:600;display:flex;align-items:center;gap:8px;">
+            <i class="bi bi-geo-alt-fill"></i> Ver mapa
+          </span>
+        </div>
+      </div>
     </div>
+    <script>
+      function loadMap() {
+        document.getElementById("map-facade").outerHTML =
+          '<div style="width:100%;height:400px;overflow:hidden;border-radius:15px;position:relative;">' +
+          '<img src="/img/facade.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(3px);transform:scale(1.05);" />' +
+          '<iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="position:relative;z-index:1;display:block;" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=es&amp;q=avenida%20de%20la%20coru%C3%B1a%20154,%20lugo+(MRK%20Istambul%20Lugo)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" title="Google Maps View"></iframe>' +
+          '</div>';
+      }
+    </script>
   </div>
   <div class="footer-socials">
     <div class="socials">
